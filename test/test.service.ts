@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "../src/common/prisma.service";
 import * as bcrypt from 'bcrypt';
-import { User } from "@prisma/client";
+import { Contact, User } from "@prisma/client";
 
 @Injectable()
 export class TestService {
@@ -38,6 +38,26 @@ export class TestService {
                 name: "test1",
                 password: await bcrypt.hash("test1", 10),
                 token: "test1"
+            }
+        });
+    }
+
+    async getContact(): Promise<Contact> {
+        return this.prismaService.contact.findFirst({
+            where: {
+                username: "test1"
+            }
+        });
+    }
+
+    async createContact() {
+        await this.prismaService.contact.create({
+            data: {
+                first_name: "test",
+                last_name: "1",
+                email: "test1@example.com",
+                phone: "555",
+                username: "test1"
             }
         });
     }
