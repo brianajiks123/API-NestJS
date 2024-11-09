@@ -15,6 +15,14 @@ export class TestService {
         });
     }
 
+    async deleteContact() {
+        await this.prismaService.contact.deleteMany({
+            where: {
+                username: "test1"
+            }
+        });
+    }
+
     async getUser(): Promise<User> {
         return await this.prismaService.user.findUnique({
             where: {
