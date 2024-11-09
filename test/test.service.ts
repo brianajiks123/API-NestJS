@@ -23,8 +23,26 @@ export class TestService {
         });
     }
 
+    async deleteAddress() {
+        await this.prismaService.address.deleteMany({
+            where: {
+                contact: {
+                    username: "test1"
+                }
+            }
+        });
+    }
+
     async getUser(): Promise<User> {
         return await this.prismaService.user.findUnique({
+            where: {
+                username: "test1"
+            }
+        });
+    }
+
+    async getContact(): Promise<Contact> {
+        return this.prismaService.contact.findFirst({
             where: {
                 username: "test1"
             }
@@ -38,14 +56,6 @@ export class TestService {
                 name: "test1",
                 password: await bcrypt.hash("test1", 10),
                 token: "test1"
-            }
-        });
-    }
-
-    async getContact(): Promise<Contact> {
-        return this.prismaService.contact.findFirst({
-            where: {
-                username: "test1"
             }
         });
     }
