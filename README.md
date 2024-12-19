@@ -29,6 +29,12 @@
 ## Project setup
 
 ```bash
+$ git clone https://github.com/brianajiks123/API-NestJS.git
+```
+```bash
+$ cd API-NestJS
+```
+```bash
 $ npm install
 ```
 
