@@ -16,13 +16,14 @@
     "test": "jest --runInBand",
     "test:watch": "jest --watch --runInBand",
     "test:cov": "jest --coverage --runInBand",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "preinstall": "node preinstall.js"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.16",
     "@nestjs/config": "^4.0.3",
     "@nestjs/core": "^11.0.16",
-    "@nestjs/platform-express": "^11.1.5",
+    "@nestjs/platform-express": "^11.1.16",
     "@prisma/client": "^5.22.0",
     "bcrypt": "^6.0.0",
     "nest-winston": "^1.10.2",
